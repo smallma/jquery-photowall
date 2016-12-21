@@ -1,0 +1,39 @@
+{
+  "name": "jquery-photowall",
+  "version": "0.1.0",
+  "description": "## Description",
+  "main": "dist/js/jquery-photowall.js",
+  "bugs": {
+    "url": "https://github.com/smallma/jquery-photowall/issues"
+  },
+  "keywords": [
+    "Photo Wall",
+    "Gallery",
+    "JQuery",
+    "image"
+  ],
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "envify": "^3.4.0",
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.1.3",
+    "grunt-browserify": "^3.8.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "^0.4.4",
+    "grunt-sass": "^1.0.0",
+    "gruntify-eslint": "^1.0.0",
+    "load-grunt-tasks": "^3.2.0",
+    "node-sass": "^3.4.2"
+  },
+  "dependencies": {
+    "grunt-cli": "^0.1.13",
+    "jquery": "^1.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "grunt"
+  },
+  "author": "smallma",
+  "license": "MIT"
+}
