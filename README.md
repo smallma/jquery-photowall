@@ -1,65 +1,101 @@
-# react-sweet-search
+# jquery-photowall
 
-[react-sweet-search](https://www.npmjs.com/package/react-sweet-search) as React components
+[jquery-photowall](https://www.npmjs.com/package/jquery-photowall) jQuery photo wall gallery plugin (like in google)
 
-[![NPM](https://nodei.co/npm/react-sweet-search.png)](https://www.npmjs.com/package/react-sweet-search)
+[![NPM](https://nodei.co/npm/jquery-photowall.png)](https://www.npmjs.com/package/jquery-photowall)
 
 ## Description
-React based component Search. Enhance user experience of search.
+Base on https://github.com/creotiv/jquery-photowall
+update jQuery photo wall gallery plugin to node module
 
 
 ## Preview
-![alt tag](https://cloud.githubusercontent.com/assets/429250/14977047/793363cc-1143-11e6-8d27-92a0c9aeb036.gif)
+![alt tag](https://cloud.githubusercontent.com/assets/429250/21384928/6be1e796-c7a7-11e6-8676-b8bac9f4f697.png)
 
 
 ## Installation
 
-Install via [npm](https://www.npmjs.com/package/react-sweet-search)
+Install via [npm](https://www.npmjs.com/package/jquery-photowall)
 
 Step 1:
 ```shell
-npm install --save react-sweet-search
+npm install --save jquery-photowall
 ```
 
 Step 2:
-* include node_module/react-sweet-search/dist/css/SweetSearch.css
+* include node_module/jquery-photowall/dist/css/jquery-photowall.css
 
 
 ## Usage
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
+const $ = require('jquery');
+window.$ = $;
+global.jQuery = $;
 
-import SweetSearch from "react-sweet-search";
+const PhotoWall = new (require('./jquery-photowall.js'));
 
+const PHOTOS = {
+  photo_1: {
+     id: 'photo-1',
+     img: 'dist/images/2x/photo-1.jpg',
+     meta: '',
+     th: {
+        src: 'dist/images/1x/photo-1.jpg',
+        width: 256,
+        height: 192
+     }
+  },
+  photo_2: {
+     id: 'photo-2',
+     img: 'dist/images/2x/photo-2.jpg',
+     meta: '',
+     th: {
+        src: 'dist/images/1x/photo-2.jpg',
+        width: 257,
+        height: 192
+     }
+  }
+};
 
-const searchFn = function(inputValue, endSearch) {
-  console.log('inputValue: ' + inputValue);
+function _initPhotoWall() {
+  PhotoWall.pw.init({
+    el: '#gallery',
+    zoom: false,
+    showBox: true,
+    showBoxSocial: false,
+    padding: 3,
+    lineMaxHeight: 400,
+    lineMaxHeightDynamic: true,
+    baseScreenHeight: 600
+  });
 
-  endSearch();
+  PhotoWall.pw.load(PHOTOS);
 }
 
-const cancelFn = function (endSearch) {
-  // always needs to cancel searching
-
-  endSearch();
+function loaded() {
+  _initPhotoWall();
 }
 
-ReactDOM.render(
-  <div>
-    <SweetSearch search={searchFn} cancel={cancelFn} />
-  </div>,
-  document.getElementById("react")
-);
+if (window.attachEvent) {
+  window.attachEvent('onload', loaded);
+} else if (window.addEventListener) {
+  window.addEventListener('load', loaded, false);
+} else {
+  document.addEventListener('load', loaded, false);
+}
+
 ```
 
+```html
+<body>
+    <div id="gallery">
+      <div class="body"></div>
+    </div>
+</body>
 
-## Author
+```
 
-Designer: Bill Chen (tw0023156@gmail.com)
-
-Coder: smallma(s.rain@yahoo.com.tw)
 
 ## License
 
