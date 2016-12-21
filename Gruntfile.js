@@ -41,7 +41,7 @@ module.exports = function(grunt, type) {
       client: {
         expand: true,
         cwd: 'resources/js',
-        src: '*.js',
+        src: 'index.js',
         dest: 'dist/js/'
       }
     },
@@ -51,7 +51,7 @@ module.exports = function(grunt, type) {
         bsFiles: {
           src: [
             '*.html',
-            'dist/js/*.js',
+            'dist/js/index.js',
             'dist/css/*.css'
           ]
         },
