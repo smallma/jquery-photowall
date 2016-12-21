@@ -30,10 +30,7 @@ Step 2:
 
 ```js
 const $ = require('jquery');
-window.$ = $;
-global.jQuery = $;
-
-const PhotoWall = new (require('./jquery-photowall.js'));
+const PhotoWall = new (require('../../../../node_modules/jquery-photowall/resources/js/jquery-photowall.js'));
 
 const PHOTOS = {
   photo_1: {
