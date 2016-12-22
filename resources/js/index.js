@@ -64,7 +64,7 @@ function _initPhotoWall() {
     showBox: true,
     showBoxSocial: false,
     padding: 3,
-    lineMaxHeight: 600,
+    lineMaxHeight: 500,
     lineMaxHeightDynamic: true,
     baseScreenHeight: 600
   });

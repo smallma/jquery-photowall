@@ -27,7 +27,7 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 var $ = require('jquery');
-window.jquery = $;
+global.jquery = $;
 $.browser = {};
 $.browser.msie = false;
 $.browser.version = 0;
@@ -125,7 +125,7 @@ function PhotoWall() {
 
   // Hotfix for adding jQuery.browser method onto newer versions (it got deprecated)
   if ( !$.browser ) {
-    window.jquery.uaMatch = function( ua ) {
+    global.jquery.uaMatch = function( ua ) {
       ua = ua.toLowerCase();
       var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
           /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
@@ -139,7 +139,7 @@ function PhotoWall() {
       };
     };
 
-    var matched = window.jquery.uaMatch( navigator.userAgent );
+    var matched = global.jquery.uaMatch( navigator.userAgent );
     var browser = {};
     if ( matched.browser ) {
         browser[ matched.browser ] = true;
@@ -206,7 +206,7 @@ function PhotoWall() {
 
 
     init: function(op) {
-        PhotoWall.options = window.jquery.extend(PhotoWall.options,op);
+        PhotoWall.options = global.jquery.extend(PhotoWall.options,op);
           PhotoWall.options.baseScreenHeight = $(window).height();
       PhotoWall._el = op.el+' .body';
       PhotoWall._c_width = $(PhotoWall._el).width()- getScrollBarWidth();
@@ -630,7 +630,7 @@ function PhotoWall() {
               menuBarContent:'',
               onUpdate: null
           };
-          ShowBox.options.push(window.jquery.extend(a,op));
+          ShowBox.options.push(global.jquery.extend(a,op));
           ShowBox._init(el);
           ShowBox._initEvents(el);
           ShowBox._parseGet();
@@ -814,7 +814,7 @@ function PhotoWall() {
           ShowBox._setPhotoMeta();
           //ShowBox._setCounter(ind+1,total);
 
-          window.location.hash = 'p='+(ind+1)+'&gal='+(ShowBox._current+1);
+          global.location.hash = 'p='+(ind+1)+'&gal='+(ShowBox._current+1);
           $('#showbox .showbox-menubar').append('<div id="showbox-menubar'+ShowBox._current+'" style="position:relative;">'+ShowBox.options[ShowBox._current].menuBarContent+'</div>');
           ShowBox._onChangePhoto();
           ShowBox._index = ind;
@@ -922,7 +922,7 @@ function PhotoWall() {
         $('#showbox .showbox-th-counter').html(meta);
       },
       _clearHash: function() {
-          window.location.hash = '_';
+          global.location.hash = '_';
       },
       opened: function() {
         return ShowBox._opened;
