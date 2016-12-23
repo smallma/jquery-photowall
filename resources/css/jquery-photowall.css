@@ -166,3 +166,15 @@ img.pw-photo-zoomed {
   }
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; }
+
+@media (max-width: 720px) {
+  #showbox .showbox-preview {
+    height: auto;
+  }
+  #showbox .showbox-th-counter {
+    height: auto;
+  }
+  #showbox-thc0 {
+    top: 5px !important;
+  }
+}
